@@ -192,4 +192,3 @@ Los cambios mejoran la usabilidad del inicio de sesión y convierten la pantalla
 - Implementar el flujo real de recuperación de contraseña.
 - Integrar fotos y checklist del estado de ingreso del vehículo.
 - Confirmar que todos los endpoints respeten la separación de información entre talleres.
-
