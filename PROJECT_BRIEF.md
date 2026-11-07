@@ -1,113 +1,99 @@
 # Project Brief — BoxService
 
-## 1. Nombre del proyecto
+**Revisión: 7 de noviembre de 2026.** El estado funcional se mantiene en [MVP.md](MVP.md); este documento presenta el propósito y el alcance.
 
-**BoxService**
+## 1. Descripción
 
-## 2. Descripción
+BoxService es una plataforma para organizar el trabajo de talleres mecánicos. Permite registrar clientes y vehículos, preparar presupuestos, registrar trabajos, documentar el estado de ingreso y gestionar sus facturas e historial.
 
-BoxService es una plataforma orientada a la gestión integral de talleres mecánicos. Permite registrar clientes y vehículos, preparar presupuestos, controlar la aprobación de los trabajos, administrar services, documentar el estado del vehículo y generar la facturación correspondiente.
+## 2. Problema que aborda
 
-La solución busca reemplazar registros dispersos, tareas manuales y procesos poco organizados por un circuito digital centralizado y fácil de utilizar.
+La información de un taller puede quedar repartida entre papeles, planillas y mensajes. Eso dificulta recuperar trabajos anteriores, conocer qué se presupuestó, distinguir lo cobrado de lo pendiente y conservar evidencia de cómo ingresó un vehículo.
 
-## 3. Problema identificado
+El sistema busca reunir esos datos en un circuito de uso cotidiano, con acceso según el rol y separación de la información de cada taller.
 
-Muchos talleres administran la información mediante papel, planillas, mensajes y herramientas separadas. Esto puede generar pérdida de información, dificultad para conocer el estado de un trabajo, errores en presupuestos y facturas, y poco control sobre el historial de cada vehículo.
+## 3. Objetivo general
 
-Además, el cliente suele depender de llamadas o mensajes para conocer el estado de su vehículo o aprobar un presupuesto.
+Administrar la atención del vehículo desde su registro hasta el trabajo realizado, la facturación, el cobro registrado y la consulta de su historial.
 
-## 4. Objetivo general
+## 4. Objetivos específicos
 
-Desarrollar un sistema web que permita administrar el circuito completo de atención de un taller mecánico, desde el ingreso del cliente y su vehículo hasta la facturación y el almacenamiento del historial del service.
+- Centralizar clientes, vehículos y trabajos.
+- Preparar presupuestos y registrar su aprobación o rechazo.
+- Permitir trabajos rápidos registrados directamente, sin presupuesto previo.
+- Conservar una inspección con checklist y fotografías por visita/service.
+- Emitir facturas con conceptos, cantidades y precios.
+- Diferenciar facturado, cobrado y pendiente de cobro.
+- Administrar talleres, usuarios y permisos.
+- Restringir las operaciones al taller correspondiente.
+- Facilitar el contacto manual por WhatsApp desde Recordatorios.
+- Ofrecer acceso desde la web y ampliar el uso mediante mobile y el portal existente, respetando las limitaciones de cada versión.
 
-## 5. Objetivos específicos
+## 5. Público objetivo
 
-- Centralizar los datos de clientes, vehículos y trabajos realizados.
-- Digitalizar la creación y aprobación de presupuestos.
-- Facilitar el seguimiento de los services.
-- Registrar fotografías y una inspección mediante checklist.
-- Generar facturas asociadas a los trabajos realizados.
-- Conservar el historial de mantenimiento de cada vehículo.
-- Administrar usuarios con diferentes roles y permisos.
-- Separar la información de cada taller mediante una arquitectura multi-tenant.
-- Mejorar la comunicación entre el taller y sus clientes.
+- Dueños de talleres pequeños y medianos.
+- Empleados y personal administrativo del taller.
+- Administrador general de la plataforma.
+- Clientes que consultan la información habilitada de sus vehículos en el portal.
 
-## 6. Público objetivo
-
-El sistema está dirigido principalmente a:
-
-- Dueños de talleres mecánicos.
-- Empleados y operarios del taller.
-- Personal administrativo.
-- Clientes que necesitan consultar presupuestos y el estado de sus vehículos.
-
-En una primera etapa, el proyecto apunta a talleres pequeños y medianos que necesitan organizar y digitalizar su operación.
-
-## 7. Integrantes y áreas de trabajo
+## 6. Equipo y áreas de participación
 
 | Integrante | Área principal de participación |
 |---|---|
-| Oscar Quesada | Frontend, experiencia de usuario, vistas operativas y módulo de fotografías y checklist |
-| Maximiliano Gartner | Integración, revisión de código, migraciones y desarrollo general |
-| Leonardo Busch | Autenticación, autorización, roles y seguridad |
-| Cristhian Carrasco | Backend, API, base de datos y migración a ASP.NET Core con PostgreSQL |
+| Oscar Quesada | Frontend, experiencia de usuario, vistas operativas e inspecciones con fotos y checklist. |
+| Maximiliano Gartner | Integración, revisión de código, migraciones y desarrollo general. |
+| Leonardo Busch | Autenticación, autorización, roles y seguridad. |
+| Cristhian Carrasco | Backend, API, base de datos y migración a ASP.NET Core con PostgreSQL. |
 
-Estas áreas representan la distribución actual del trabajo y pueden modificarse o compartirse durante los diferentes sprints.
+Las áreas pueden compartirse y ajustarse durante los sprints; no implican propiedad exclusiva de los módulos.
 
-## 8. Roles del sistema
+## 7. Usuarios y responsabilidades
 
-### Superadministrador
+| Usuario | Responsabilidad |
+|---|---|
+| Administrador general (`superadmin`) | Gestionar los talleres y las funciones globales de administración. |
+| Dueño (`dueno`) | Administrar su taller, sus empleados y sus datos operativos; consultar Métricas. |
+| Empleado (`empleado`) | Ejecutar las operaciones habilitadas de su taller. Puede consultar el catálogo sin modificarlo. |
+| Cliente del portal (`customer`) | Consultar la información de sus vehículos que el portal existente expone. |
 
-Administra la plataforma de manera general y puede gestionar los talleres registrados.
+La consulta del portal tiene implementación. La aprobación/rechazo de presupuestos por el propio cliente y el envío de solicitudes a múltiples talleres no se consideran terminados. La aplicación móvil existente es una interfaz operativa; no debe presentarse toda ella como una aplicación de autogestión del cliente.
 
-### Dueño del taller
+## 8. Alcance actual
 
-Administra los datos del taller, los empleados, los clientes, los vehículos y el seguimiento general de la operación.
+- Gestión web de talleres, usuarios, clientes, vehículos, presupuestos, services, facturas y catálogo.
+- Inspección por service, checklist y fotografías privadas con enlaces temporales.
+- Facturación desde presupuesto y facturación directa de un service sin presupuesto.
+- Consulta del historial y vistas de impresión.
+- Registro del cobro completo de una factura, anulación y métricas del dueño.
+- Recordatorios próximos/vencidos y contacto manual por WhatsApp.
+- Aplicación móvil con pantallas y capacidades parciales respecto de la web.
+- Portal existente para consulta del cliente, sujeto a su configuración e invitación.
 
-### Empleado u operario
+## 9. Recorridos de referencia
 
-Gestiona las tareas habilitadas para su rol, como consultar vehículos, trabajar sobre un service, completar controles y registrar avances.
+```text
+Con presupuesto: Cliente y vehículo → Presupuesto aprobado → Service → Factura → Cobro
+Directo: Cliente y vehículo → Registrar service → Facturar conceptos y precios → Cobro
+```
 
-### Cliente
+La inspección y el historial se vinculan al service. El historial conserva el trabajo desde su registro, independientemente de cuándo se facture o cobre.
 
-En etapas posteriores podrá consultar el estado del vehículo y aprobar o rechazar presupuestos desde un portal o aplicación móvil.
+## 10. Criterios de éxito
 
-## 9. Alcance
+- El usuario accede a las funciones de su rol.
+- Las operaciones rechazan recursos y relaciones de otros talleres.
+- El taller registra clientes y vehículos y recupera su historial.
+- Un presupuesto aprobado puede continuar como trabajo realizado.
+- Un trabajo sin presupuesto puede facturarse con un importe válido.
+- El checklist y las fotografías se conservan y pueden consultarse.
+- Una factura no se duplica para el mismo service en los casos probados.
+- El dueño distingue lo facturado, lo cobrado y lo pendiente.
+- La interfaz comunica cargas, resultados y errores sin quedar indefinidamente en “Cargando…”.
 
-El proyecto contempla:
+Estos criterios orientan la validación: no constituyen una certificación de todas las rutas ni de todos los entornos. Los casos y resultados efectivamente comprobados están en el [informe de cambios](docs/cambios/2026-11-07-seguridad-facturacion-metricas.md).
 
-- Aplicación web para la gestión del taller.
-- Autenticación y autorización según roles.
-- Gestión de talleres y empleados.
-- Gestión de clientes y vehículos.
-- Presupuestos y aprobación.
-- Gestión y seguimiento de services.
-- Inspección mediante fotografías y checklist.
-- Facturación e historial del vehículo.
-- Separación de datos por taller.
-- Preparación de una aplicación móvil y un portal para clientes.
+## 11. Restricciones y ampliaciones
 
-## 10. Entregable principal
+El proyecto es académico y su planificación original comprende ocho semanas. Los servicios externos dependen de configuración y disponibilidad. Stock, agenda/turnos, QR, aprobación del cliente, pagos parciales y mensajería automática deben conservarse como ampliaciones pendientes hasta confirmar su implementación.
 
-Una versión funcional de BoxService que permita ejecutar el flujo principal de un taller de manera completa:
-
-**Cliente y vehículo → Presupuesto → Aprobación → Service → Facturación → Historial**
-
-## 11. Criterios de éxito
-
-- El usuario puede iniciar sesión y acceder únicamente a las funciones correspondientes a su rol.
-- Un taller puede registrar clientes y vehículos.
-- Se puede crear un presupuesto y registrar su aprobación.
-- El presupuesto aprobado puede continuar como service.
-- El taller puede documentar el estado del vehículo.
-- El service puede finalizarse y facturarse.
-- El trabajo realizado queda disponible en el historial del vehículo.
-- Los datos de un taller no pueden ser consultados por otro taller.
-
-## 12. Restricciones
-
-- El desarrollo debe completarse dentro del período académico establecido.
-- El equipo cuenta con ocho semanas de planificación.
-- Algunas integraciones externas pueden depender de servicios de terceros.
-- Las funcionalidades planificadas para etapas posteriores estarán sujetas al tiempo disponible.
-
+Las correcciones recientes están publicadas en ramas de trabajo; su aprobación, integración y despliegue deben verificarse por separado.

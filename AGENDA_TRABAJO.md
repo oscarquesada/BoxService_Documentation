@@ -1,107 +1,77 @@
-# Agenda de trabajo — 8 semanas
+# Agenda de trabajo y seguimiento — BoxService
 
-## 1. Metodología
+**Actualización documental: 7 de noviembre de 2026.**
 
-El trabajo se organiza en cuatro sprints de dos semanas. Cada sprint agrupa funcionalidades relacionadas y finaliza con una revisión del avance, pruebas y actualización de la documentación.
+## 1. Separar plan y avance
 
-Los estados utilizados son:
+El plan original se organizó en cuatro sprints de dos semanas. Se conserva como referencia de objetivos, no como un calendario que pruebe cuándo se terminó o desplegó cada función.
 
-- **Terminado:** funcionalidad implementada.
-- **En desarrollo:** trabajo iniciado y todavía no finalizado.
-- **Planificado:** trabajo pendiente para los próximos sprints.
+El estado funcional actual se mantiene en [MVP.md](MVP.md). La fecha de esta actualización no asigna retrospectivamente fechas de ejecución a los sprints.
 
-## 2. Situación inicial
+## 2. Planificación original de ocho semanas
 
-### Trabajo terminado
+| Semana | Sprint | Objetivo original |
+|---|---:|---|
+| 1 | 1 | Requerimientos, MVP, organización del Trello y repositorios. |
+| 2 | 1 | Ambientes, manejo de secretos, CI/CD y despliegues de desarrollo. |
+| 3 | 2 | Consolidación del login, roles e integración frontend/backend. |
+| 4 | 2 | Talleres, empleados, seguridad, contraseñas y pruebas unitarias. |
+| 5 | 3 | Migraciones, fotografías, checklist e inspección del vehículo. |
+| 6 | 3 | Separación por taller, métricas, pagos, stock y notificaciones. |
+| 7 | 4 | Mobile y portal, con consulta y futura autogestión del cliente. |
+| 8 | 4 | QR, agenda, pruebas integrales, documentación y exposición final. |
 
-- Migración del frontend a React, TypeScript y Next.js.
-- Migración del backend a ASP.NET Core y PostgreSQL.
-- Autenticación con JWT/OIDC y roles de dueño, superadministrador y empleado.
-- Rediseño de la pantalla de inicio de sesión.
-- Mejoras en la vista operativa del taller, combos de service y validaciones.
-- Revisión de código e integración de clientes con el backend real.
+Agrupar tareas en una semana no significa que todas tengan el mismo avance. Por ejemplo, catálogo no equivale a stock, y restablecimiento administrativo no equivale a recuperación autónoma de contraseña.
 
-### Trabajo en desarrollo
+## 3. Seguimiento actualizado
 
-- Migraciones de base de datos.
-- Módulo de fotografías y checklist del vehículo.
+| Área del plan | Situación revisada | Próximo paso |
+|---|---|---|
+| Base web y backend | Next.js/React/TypeScript y ASP.NET Core/.NET 10/PostgreSQL presentes y compilados. | Mantener configuración y documentación alineadas. |
+| Integración continua | Workflows presentes; frontend con lint/typecheck/build y backend con build/Docker. | Revisar ejecución de tests en CI; no asumir despliegue por un build correcto. |
+| Autenticación y roles | Implementación existente y pruebas de ingreso. | Integrar/revisar los refuerzos recientes de vigencia de sesión. |
+| Talleres, empleados y pagos mensuales | Código de administración presente; gestión de empleado probada. | Validar en el entorno de destino las funciones no recorridas en esta ronda. |
+| Inspecciones, checklist y fotos web | Implementados, documentados y probados. | Mantener pruebas de acceso entre talleres y revisar los cambios en sus PR. |
+| Clientes, vehículos e historial | Alta/consulta y circuito operativo probados. | No anunciar edición completa de todos los registros sin verificarla. |
+| Seguridad entre talleres | Correcciones y pruebas directas publicadas en la rama nueva. | Revisión/merge y comprobación posterior en el entorno integrado. |
+| Facturación y Métricas | Dos recorridos de facturación, detalle y cobros implementados/probados en la rama nueva. | Integración coordinada de web/backend y esquema de base. |
+| Recordatorios web | Implementación y corrección de repetición de la migración 015 publicadas en trabajo previo. | Confirmar aprobación/merge del PR correspondiente. |
+| WhatsApp/SMS automático | WhatsApp manual existe; envío automático y SMS no están completados. | Definir alcance separado si se decide automatizar. |
+| Mobile | Aplicación operativa parcial existente. | Resolver permisos de publicación y adaptar facturación/métricas con su responsable. |
+| Portal | Código de consulta e ingreso Google presente; no probado en vivo en esta ronda. | Validar configuración y separar consulta de aprobación/autogestión todavía pendiente. |
+| Stock, QR y turnos | No se presentan como terminados. | Priorizar con el equipo según tiempo disponible. |
+| Documentación | Se actualizan estos seis documentos y se incorporan informes detallados. | Revisar el PR documental y mantener el README como índice. |
 
-## 3. Planificación semanal
+## 4. Entrega reciente
 
-| Semana | Sprint | Actividades principales | Resultado esperado | Estado inicial |
-|---|---:|---|---|---|
-| 1 | 1 | Revisión de requerimientos, definición del MVP, organización del Trello y repositorios | Alcance y documentación inicial definidos | Terminado |
-| 2 | 1 | Infraestructura base, ambientes, CI/CD, manejo de secretos y despliegues de desarrollo en Vercel y Render | Entornos de desarrollo preparados | Planificado |
-| 3 | 2 | Consolidación del login, roles y permisos; conexión del frontend con el backend real | Acceso seguro e integración funcional | Parcialmente terminado |
-| 4 | 2 | Alta de talleres y empleados, middlewares de seguridad, auditoría, recuperación de contraseña y pruebas unitarias | Administración básica y controles de seguridad | Planificado |
-| 5 | 3 | Migraciones pendientes, fotografías, checklist e inspección del vehículo | Registro documentado del estado del vehículo | En desarrollo |
-| 6 | 3 | Arquitectura multi-tenant, dashboard del dueño, pagos, stock de repuestos y notificaciones | Datos separados por taller y herramientas de gestión | Planificado |
-| 7 | 4 | Aplicación móvil y portal del cliente para consultar estados y aprobar presupuestos | Primer canal de autogestión del cliente | Planificado |
-| 8 | 4 | Código QR del vehículo, agenda de turnos, pruebas integrales, correcciones, documentación y presentación final | Versión integrada y preparada para la entrega | Planificado |
+Rama de aplicación: `dev-oscar-seguridad-facturacion-metricas`.
 
-## 4. Detalle por sprint
+- Backend: `6595801`.
+- Frontend: `9af5ecd`.
+- Cambios de base: 016 (`facturas.paid_at`) y 017 (`detalle_factura`).
+- Las dos migraciones ya fueron aplicadas manualmente en la base utilizada para probar.
+- Compilaciones y pruebas realizadas: ver [informe de cambios](docs/cambios/2026-11-07-seguridad-facturacion-metricas.md).
 
-### Sprint 1 — Base técnica e infraestructura
+Las ramas nuevas conservan commits de Recordatorios porque parten del trabajo anterior. Antes de integrar, corresponde revisar la comparación con `develop` y las dependencias entre PR. Esta agenda no certifica que esos PR estén aprobados o fusionados.
 
-**Semanas 1 y 2**
+## 5. Criterio de cierre de una tarea
 
-- Definir alcance y MVP.
-- Preparar repositorios y documentación.
-- Configurar ambientes de desarrollo.
-- Implementar CI/CD.
-- Configurar el manejo de secretos.
-- Desplegar el frontend de desarrollo en Vercel.
-- Desplegar el backend de desarrollo en Render.
+Conviene registrar por separado:
 
-### Sprint 2 — Seguridad y administración
+1. **Implementación:** código presente en una rama identificada.
+2. **Validación:** qué pruebas se hicieron, resultado y limitaciones.
+3. **Publicación de la rama:** commit/push y PR correspondiente.
+4. **Integración:** aprobación y merge a la rama de destino.
+5. **Entorno de uso:** migraciones/configuración necesarias y versión desplegada, si corresponde.
 
-**Semanas 3 y 4**
+Evitar un único “Terminado” que haga parecer equivalentes escribir código, probarlo localmente e integrarlo en el entorno compartido.
 
-- Conectar el frontend con el login y los permisos por rol.
-- Implementar el alta de talleres.
-- Implementar la gestión de empleados.
-- Crear middlewares de seguridad y verificaciones.
-- Realizar una auditoría de seguridad.
-- Incorporar recuperación de contraseña.
-- Crear pruebas unitarias.
+## 6. Prioridades siguientes
 
-### Sprint 3 — Gestión y operación del taller
+- Revisar e integrar los PR de aplicación y sus dependencias.
+- Verificar el recorrido corto de demostración en la versión integrada.
+- Confirmar alcance y estado publicado de mobile con el compañero responsable.
+- Mantener diferenciados los pendientes reales: aprobación del cliente, recuperación autónoma, stock, automatizaciones, QR y agenda.
+- Preparar la exposición con funciones comprobadas, sin presentar un roadmap como producto terminado.
 
-**Semanas 5 y 6**
-
-- Completar migraciones.
-- Finalizar fotografías y checklist del vehículo.
-- Implementar pagos y stock de repuestos.
-- Incorporar notificaciones por WhatsApp o SMS.
-- Crear recordatorios automáticos de service.
-- Crear el dashboard para el dueño del taller.
-- Implementar la arquitectura multi-tenant.
-
-### Sprint 4 — Experiencia del cliente y cierre
-
-**Semanas 7 y 8**
-
-- Desarrollar la aplicación móvil con React Native y TypeScript.
-- Crear el portal del cliente.
-- Permitir la consulta del estado del vehículo.
-- Permitir la aprobación de presupuestos desde el celular.
-- Incorporar un código QR para identificar el vehículo.
-- Incorporar agenda de turnos.
-- Ejecutar pruebas integrales.
-- Corregir errores y actualizar documentación.
-- Preparar la demostración y presentación final.
-
-## 5. Seguimiento
-
-Al finalizar cada semana, el equipo debe:
-
-1. Revisar las tarjetas del Trello.
-2. Actualizar el estado de las tareas.
-3. Registrar bloqueos o dificultades.
-4. Verificar los cambios integrados en GitHub.
-5. Actualizar esta agenda si cambia el alcance.
-
-## 6. Criterio de priorización
-
-El equipo priorizará primero las funciones necesarias para completar el flujo del MVP. Las funciones complementarias podrán reprogramarse si afectan la estabilidad o la entrega del circuito principal.
-
+No se modifican aquí fechas de examen, asignaciones del Trello ni compromisos del equipo que no hayan sido confirmados.
