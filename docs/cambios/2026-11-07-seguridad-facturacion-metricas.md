@@ -1,7 +1,9 @@
 # BoxServices — Documentación de cambios
 
-**Fecha:** 7 de noviembre de 2026.  
-**Rama:** `dev-oscar-seguridad-facturacion-metricas`.  
+**Fecha:** 7 de noviembre de 2026.
+
+**Rama:** `dev-oscar-seguridad-facturacion-metricas`.
+
 **Alcance:** correcciones de seguridad, sesiones, permisos, facturación, métricas y experiencia de uso en backend y web.
 
 ## 1. Estado de la entrega
